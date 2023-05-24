@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - semaphore_ssh_keys:/root
-      - semaphore_playbooks:/playBooks
+      - /docker_shared_data/Ansible_Playbooks:/playBooks
       - semaphore_config:/config
     ports:
       - 3000:3000 
@@ -21,7 +21,7 @@ services:
       - SEMAPHORE_UI_EMAIL=admin@admin.com
       - SEMAPHORE_UI_NAME=admin
       - SEMAPHORE_UI_PASSWORD=changeme
-      - SSH_KEY_PASSPHRASE=asdkasdk
+      - SSH_KEY_PASSPHRASE=changeme
       
   ansible-sql:
     container_name: ansible-sql
@@ -38,26 +38,9 @@ services:
       MYSQL_USER: semaphore
       MYSQL_PASSWORD: semaphore
       MYSQL_ROOT_PASSWORD: semaphore
-     
-  code-server:
-    image: lscr.io/linuxserver/code-server:latest
-    container_name: ansible-playbook-editor
-    environment:
-      - PUID=1001
-      - PGID=1001
-      - TZ=Europe/Berlin
-      - PASSWORD=password
-      - SUDO_PASSWORD=sudopassword
-    volumes:
-      - codeserver_config:/config
-      - semaphore_playbooks:/playBooks
-    ports:
-      - 8443:8443
-    restart: unless-stopped
-    
+        
 volumes:
   semaphore_config:
   semaphore_playbooks:
   semaphore_ssh_keys:
-  codeserver_config:
   ansible_db:

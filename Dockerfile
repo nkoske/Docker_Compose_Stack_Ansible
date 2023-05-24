@@ -23,6 +23,9 @@ RUN chmod +x /wait-for-it.sh
 COPY var/scripts/semaphore-start.sh /
 RUN chmod +x /semaphore-start.sh
 
+COPY var/scripts/installOnClient.sh /
+RUN chmod +x /installOnClient.sh
+
 
 CMD ["./wait-for-it.sh" , "ansible-sql:3306" , "--strict" , "--timeout=300" , "--", "bin/sh","/semaphore-start.sh"]
 
