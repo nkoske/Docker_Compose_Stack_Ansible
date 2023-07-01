@@ -34,7 +34,7 @@ RUN pip  install ansible==7.5.0
 RUN pip  install requests
 RUN apt install sshpass --yes
 
-
+# Select Scripts for installation here
 RUN ansible-galaxy collection install community.general
 RUN ansible-galaxy collection install community.docker
 
@@ -56,8 +56,6 @@ RUN chmod +x /installOnClient.sh
 
 
 CMD ["./wait-for-it.sh" , "ansible-sql:3306" , "--strict" , "--timeout=300" , "--", "bin/sh","/semaphore-start.sh"]
-
-
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
 
 

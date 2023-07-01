@@ -1,4 +1,4 @@
-
+#!/bin/bash
     configpath=/config
     configString="${SEMAPHORE_DB_TYPE}\n${SEMAPHORE_DB_HOSTNAME}\n${SEMAPHORE_DB_USER}\n${SEMAPHORE_DB_PASS}\n${SEMAPHORE_DB_NAME}\n${SEMAPHORE_PLAYBOOK_PATH}\n\n\n\n\n\n${configpath}\n${SEMAPHORE_UI_USERNAME}\n${SEMAPHORE_UI_EMAIL}\n${SEMAPHORE_UI_NAME}\n${SEMAPHORE_UI_PASSWORD}\n\n"
     
