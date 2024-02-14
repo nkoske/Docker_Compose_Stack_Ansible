@@ -9,6 +9,7 @@ git clone https://github.com/nkoske/Docker_Compose_Stack_Ansible.git
 
 Copying the .env file
 ```
+cd Docker_Compose_Stack_Ansible
 cp .example.env .env
 ```
 The .example.env is fully functional.
