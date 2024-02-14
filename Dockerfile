@@ -1,9 +1,10 @@
-FROM ubuntu:22.10
+FROM ubuntu:latest
 ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN apt update && apt install wget --yes
 
-RUN apt update && apt install -y curl
+
+RUN apt update
+RUN apt install -y curl wget
 
 #h python3-boto3 git
 
