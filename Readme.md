@@ -18,8 +18,23 @@ for prod environments it is advised to change usernames and passwords in the .en
 
 
 
-## Configuration
 
 ## Usage
 
 
+Starting the Stack
+```
+docker-compose up -d
+```
+
+Generating the SSH Keypair for the ansible container (no password)
+```
+docker exec -it ansible /bin/bash
+ssh-keygen
+```
+
+For Access to other Hosts copy the ansible pub key to the Worker node
+```
+ docker exec -it ansible /bin/bash
+ ssh-copy-id -i /root/.ssh/id_rsa.pub root@[worker ip]
+```
